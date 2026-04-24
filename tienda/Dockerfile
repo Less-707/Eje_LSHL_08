@@ -6,4 +6,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "java -jar build/libs/*.jar"]
+CMD ["sh", "-c", "java -jar build/libs/tienda-0.0.1-SNAPSHOT.jar"]
