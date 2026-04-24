@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Categorias - Actualizar</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
+        a { color: #0066cc; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+        form { margin-top: 20px; max-width: 400px; }
+        label { font-weight: bold; display: block; margin-top: 15px; margin-bottom: 5px; }
+        input[type="text"], textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { margin-top: 20px; padding: 10px 15px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #004c99; }
+    </style>
+</head>
+<body>
+<h1>Categorias - Actualizar</h1>
+<a th:href="@{/categorias}">← Regresar a la lista</a>
+
+<form th:action="@{/categorias/guardar}" th:object="${categoria}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required/>
+
+    <label>Descripcion:</label>
+    <textarea th:field="*{descripcion}" rows="4" required></textarea>
+
+    <button type="submit">Actualizar Categoria</button>
+</form>
+</body>
+</html>

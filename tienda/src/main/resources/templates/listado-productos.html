@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Productos</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 40px;
+            color: #333;
+        }
+        .links-superiores a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .links-superiores a:hover {
+            text-decoration: underline;
+        }
+        table {
+            table {
+                width: 800px;
+                border-collapse: collapse;
+                margin-top: 20px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        th, td {
+            padding: 10px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #333;
+        }
+
+        td a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>Productos</h1>
+
+<div class="links-superiores">
+    <a th:href="@{/}">Regresar</a>
+    <a th:href="@{/productos/agregar}">Agregar Producto</a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Categoria</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="producto : ${productos}">
+        <td th:text="${producto.id}">1</td>
+        <td th:text="${producto.nombre}">Raqueta</td>
+        <td th:text="'$ ' + ${producto.precio}">$ 450.00</td>
+        <td th:text="${producto.categoria}">Deportes</td>
+        <td>
+            <a th:href="@{/productos/actualizar/{id}(id=${producto.id})}">Actualizar</a>
+            <a th:href="@{/productos/eliminar/{id}(id=${producto.id})}">Eliminar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
