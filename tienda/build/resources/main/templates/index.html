@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tienda</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
+        a { display: inline-block; padding: 10px 20px; margin: 10px 10px 0 0; background-color: #0066cc; color: white; text-decoration: none; border-radius: 4px; }
+        a:hover { background-color: #004c99; }
+    </style>
+</head>
+<body>
+<h1>Bienvenido a la Tienda</h1>
+<p>Selecciona el módulo que deseas administrar:</p>
+<a th:href="@{/productos}">Gestionar Productos</a>
+<a th:href="@{/categorias}">Gestionar Categorías</a>
+</body>
+</html>

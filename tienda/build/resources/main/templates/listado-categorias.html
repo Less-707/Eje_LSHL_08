@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Categorias</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
+        .links a { color: #0066cc; text-decoration: none; margin-right: 15px; font-weight: bold; }
+        .links a:hover { text-decoration: underline; }
+        table {width: 800px;
+            border-collapse: collapse;
+            margin-top: 20px;}
+        th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+        td a { color: #0066cc; text-decoration: none; margin-right: 10px; }
+        td a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<h1>Categorias</h1>
+<div class="links">
+    <a th:href="@{/}">Regresar al Inicio</a> |
+    <a th:href="@{/categorias/agregar}">Agregar Categoria</a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>id</th><th>Nombre</th><th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="categoria : ${categorias}">
+        <td th:text="${categoria.id}"></td>
+        <td th:text="${categoria.nombre}"></td>
+        <td>
+            <a th:href="@{/categorias/actualizar/{id}(id=${categoria.id})}">Actualizar</a>
+            <a th:href="@{/categorias/eliminar/{id}(id=${categoria.id})}" style="color: #0066cc;">Eliminar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

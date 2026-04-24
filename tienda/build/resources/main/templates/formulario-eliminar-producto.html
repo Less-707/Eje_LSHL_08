@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Productos - Eliminar</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
+        a { color: #0066cc; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+        form { margin-top: 20px; max-width: 400px; background-color: #fdfcfc; padding: 20px; border: 1px solid #ffffff; border-radius: 5px; }
+        label { font-weight: bold; display: block; margin-top: 15px; margin-bottom: 5px; color: #3a3939; }
+        input[tyspe="text"] { width: 100%; padding: 8px; border: 1px solid #fbfafa; border-radius: 4px; box-sizing: border-box; background-color: #ffffff; }
+        button { margin-top: 20px; padding: 10px 15px; background-color: #a61818; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold;}
+        button:hover { background-color: #ffffff; }
+        .alerta { color: #0c0808; font-weight: bold; }
+    </style>
+</head>
+<body>
+<h1>Productos - Eliminar</h1>
+<a th:href="@{/productos}">← Regresar a la lista</a>
+
+<form th:action="@{/productos/eliminar}" method="post">
+    <p class="alerta">¿Estás seguro de eliminar este producto?</p>
+    <input type="hidden" name="id" th:value="${producto.id}" />
+
+    <label>Nombre:</label>
+    <input type="text" th:value="${producto.nombre}" disabled/>
+
+    <label>Precio:</label>
+    <input type="text" th:value="'$ ' + ${producto.precio}" disabled/>
+
+    <label>Categoria:</label>
+    <input type="text" th:value="${producto.categoria}" disabled/>
+
+    <button type="submit">Sí, Eliminar Definitivamente</button>
+</form>
+</body>
+</html>

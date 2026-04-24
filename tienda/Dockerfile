@@ -1,4 +1,9 @@
-FROM ubuntu:latest
-LABEL authors="Lenovo"
+FROM eclipse-temurin:17-jdk
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY . .
+
+EXPOSE 8080
+
+CMD ["sh", "-c", "java -jar build/libs/*.jar"]
